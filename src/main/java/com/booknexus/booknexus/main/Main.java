@@ -1,16 +1,17 @@
 package com.booknexus.booknexus.main;
 
-import com.booknexus.booknexus.model.DataAPI;
-import com.booknexus.booknexus.model.DataBook;
+import com.booknexus.booknexus.model.*;
+import com.booknexus.booknexus.repository.BookRepository;
 import com.booknexus.booknexus.service.API;
 import com.booknexus.booknexus.service.DataConvert;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -18,8 +19,160 @@ public class Main {
     private Scanner keyboard = new Scanner(System.in);
     private DataConvert dataConvert =new DataConvert();
     private API api = new API();
+    private BookRepository repository;
 
-    public void menu() throws JsonProcessingException, UnsupportedEncodingException {
+    public Main(BookRepository bookRepository){
+        this.repository=bookRepository;
+    }
+
+    public void menu(){
+
+        String menu= """
+                
+                - [1]  Find Book By Title
+                - [2]  Find All Books
+                - [3]  FInd All Authors
+                - [4]  Find Living Authors In A Given Year
+                - [5]  Find Books By Language
+                
+                - [0] Exit
+                
+                """;
+
+        int opc=-1;
+        while(opc!=0){
+
+            System.out.println(menu);
+            opc=keyboard.nextInt();
+
+            switch(opc){
+
+                case 1:{
+                    findBookByTitle();
+                    break;
+                }
+
+                case 2:{
+
+                    findAllBooks();
+                    break;
+                }
+
+                case 3:{
+                    findAllAuthors();
+                    break;
+                }
+
+                case 4:{
+                    findLivingAuthorsInAGivenYear();
+                    break;
+                }
+
+                case 5:{
+                    findByLanguage();
+                    break;
+                }
+
+                case 0:{
+                    System.out.println("see you later");
+                    break;
+                }
+
+                default:{
+
+                    break;
+                }
+
+
+
+
+            }
+
+
+
+        }
+
+
+    }
+
+
+
+    public void findBookByTitle (){
+        keyboard.nextLine();
+        System.out.println("Enter Title of the book");
+        String title=keyboard.nextLine();
+
+        Optional<Book>  book=repository.findByTitleContainingIgnoreCase(title.toUpperCase());
+        if(book.isPresent()){
+            System.out.println(book.get());
+        }else{
+            System.out.println("Book not found");
+        }
+    }
+
+
+    public void findAllBooks(){
+
+        List<Book> books =repository.findAll();
+
+        if(!books.isEmpty()){
+            System.out.println(books);
+        }
+
+    }
+
+    public void findAllAuthors(){
+        List<Author> authors=repository.findAllAuthor();
+
+        if(!authors.isEmpty()){
+            System.out.println(authors);
+        }
+
+    }
+
+
+
+
+    public void findByLanguage(){
+
+        List<String> languages=repository.findDistinctLanguageNames();
+        int opc2=-1;
+        System.out.println("Select language");
+
+
+        AtomicInteger index = new AtomicInteger(0);
+
+        languages.stream().forEach(l -> {
+            System.out.println("[" + index.getAndIncrement() + "]" + l.toString());
+        });
+        opc2=keyboard.nextInt();
+
+        String language=languages.get(opc2);
+
+        List<Book> books=repository.findBookByLanguages(language.toUpperCase());
+
+        books.forEach(System.out::println);
+
+    }
+
+
+
+     public void findLivingAuthorsInAGivenYear() {
+
+         System.out.println("Enter year");
+         Integer year = keyboard.nextInt();
+
+         List<Author> authors = repository.findLivingAuthorsInAGivenYear(year);
+
+         if (!authors.isEmpty()) {
+            authors.forEach(System.out::println);
+
+         }
+     }
+
+
+
+    public void saveData() throws  UnsupportedEncodingException {
 
         String json=api.getData(URL);
         DataAPI book=dataConvert.getData(json, DataAPI.class);
@@ -27,13 +180,19 @@ public class Main {
         book.books().stream()
                 .limit(5)
                 .forEach(System.out::println);
-
+        System.out.println(book);
 
         System.out.println("TOP TEN");
         book.books().stream()
                 .sorted(Comparator.comparing(DataBook::downloadAccount).reversed())
                 .limit(10)
                 .forEach(e-> System.out.println(e.title().toUpperCase()));
+
+        List<Book> books=book.books().stream()
+                .map(b->new Book(b))
+                .collect(Collectors.toList());
+
+        repository.saveAll(books);
 
         System.out.println("Enter book name");
         String name=keyboard.nextLine();
@@ -56,42 +215,6 @@ public class Main {
                  .summaryStatistics();
 
         System.out.println(estatistics);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //        DataBook book =dataConvert.getData(json,DataBook.class);
