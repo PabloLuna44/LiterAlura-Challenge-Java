@@ -4,8 +4,6 @@ import com.booknexus.booknexus.model.*;
 import com.booknexus.booknexus.repository.BookRepository;
 import com.booknexus.booknexus.service.API;
 import com.booknexus.booknexus.service.DataConvert;
-import com.fasterxml.jackson.core.JsonProcessingException;
-
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -25,7 +23,7 @@ public class Main {
         this.repository=bookRepository;
     }
 
-    public void menu(){
+    public void menu() throws UnsupportedEncodingException {
 
         String menu= """
                 
@@ -79,7 +77,7 @@ public class Main {
                 }
 
                 default:{
-
+                    System.out.println("Not valid option");
                     break;
                 }
 
@@ -97,19 +95,33 @@ public class Main {
 
 
 
-    public void findBookByTitle (){
+    public void findBookByTitle () throws UnsupportedEncodingException {
         keyboard.nextLine();
-        System.out.println("Enter Title of the book");
-        String title=keyboard.nextLine();
+        System.out.println("Enter book name");
+        String name=keyboard.nextLine();
 
-        Optional<Book>  book=repository.findByTitleContainingIgnoreCase(title.toUpperCase());
-        if(book.isPresent()){
-            System.out.println(book.get());
-        }else{
-            System.out.println("Book not found");
+        Optional<Book> book=repository.findByTitleContainingIgnoreCase(name);
+
+        if (book.isPresent()){
+            System.out.println(book);
+        }else {
+            String nameEncode = URLEncoder.encode(name, "UTF-8");
+            String json = api.getData(URL + "?search=" + nameEncode);
+            DataAPI book1 = dataConvert.getData(json, DataAPI.class);
+            Optional<DataBook> findBook = book1.books().stream()
+                    .findFirst();
+
+            if (findBook.isPresent()) {
+                Book findBook2 = new Book(findBook.get());
+                repository.save(findBook2);
+
+                System.out.println(findBook2);
+
+            } else {
+                System.out.println("Not found");
+            }
         }
     }
-
 
     public void findAllBooks(){
 
@@ -129,9 +141,6 @@ public class Main {
         }
 
     }
-
-
-
 
     public void findByLanguage(){
 
@@ -155,9 +164,7 @@ public class Main {
 
     }
 
-
-
-     public void findLivingAuthorsInAGivenYear() {
+    public void findLivingAuthorsInAGivenYear() {
 
          System.out.println("Enter year");
          Integer year = keyboard.nextInt();
@@ -169,8 +176,6 @@ public class Main {
 
          }
      }
-
-
 
     public void saveData() throws  UnsupportedEncodingException {
 
