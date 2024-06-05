@@ -41,6 +41,9 @@ public class Book {
 
      }
 
+     public Integer getDownloadAccount() {
+          return downloadAccount;
+     }
 
      @Override
      public String toString() {

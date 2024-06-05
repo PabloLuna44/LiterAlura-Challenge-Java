@@ -17,7 +17,6 @@ public interface BookRepository extends JpaRepository<Book,Long> {
     @Query("SELECT a FROM Author a ")
     List<Author> findAllAuthor();
 
-
     @Query("SELECT DISTINCT l.name FROM Language l")
     List<String> findDistinctLanguageNames();
 
@@ -26,6 +25,15 @@ public interface BookRepository extends JpaRepository<Book,Long> {
 
     @Query("SELECT b FROM Book b JOIN b.languages l WHERE UPPER(l.name)=:name")
     List<Book> findBookByLanguages(String name);
+
+    @Query("SELECT b FROM Book b ORDER BY b.downloadAccount DESC LIMIT 10")
+    List<Book> findTop10Books();
+
+    @Query("SELECT a FROM Author a WHERE upper(a.name)=:name")
+    Optional<Author> findAuthorByName(String name);
+
+
+
 
 
     }

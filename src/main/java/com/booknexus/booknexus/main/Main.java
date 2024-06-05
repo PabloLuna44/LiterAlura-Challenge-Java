@@ -27,14 +27,17 @@ public class Main {
 
         String menu= """
                 
-                - [1]  Find Book By Title
-                - [2]  Find All Books
-                - [3]  FInd All Authors
-                - [4]  Find Living Authors In A Given Year
-                - [5]  Find Books By Language
+                [1]  Find Book By Title
+                [2]  Find All Books
+                [3]  FInd All Authors
+                [4]  Find Living Authors In A Given Year
+                [5]  Find Books By Language
+                [6]  Top 10 Books
+                [7]  Find Author By Name 
+                [8]  Statistics
                 
-                - [0] Exit
-                
+                [0] Exit
+          
                 """;
 
         int opc=-1;
@@ -68,6 +71,19 @@ public class Main {
 
                 case 5:{
                     findByLanguage();
+                    break;
+                }
+                case 6:{
+                    top10Books();
+                    break;
+                }
+                case 7:{
+                    findAuthorByName();
+                    break;
+                }
+
+                case 8:{
+                    Statistics();
                     break;
                 }
 
@@ -177,6 +193,55 @@ public class Main {
          }
      }
 
+    public void top10Books(){
+
+        List<Book> books=repository.findTop10Books();
+
+        if (!books.isEmpty()){
+            books.forEach(System.out::println);
+        }
+     }
+
+    public void findAuthorByName(){
+         keyboard.nextLine();
+         System.out.println("Enter name");
+         String name= keyboard.nextLine();
+         Optional<Author> author=repository.findAuthorByName(name.toUpperCase());
+
+         if (author.isPresent()){
+             System.out.println(author);
+         }else{
+             System.out.println("Not found");
+         }
+
+     }
+
+     public void Statistics(){
+
+        List<Book> books=repository.findAll();
+
+        IntSummaryStatistics statistics=books.stream()
+                .mapToInt(Book::getDownloadAccount)
+                .summaryStatistics();
+
+        Optional<Book> max=books.stream()
+                        .max(Comparator.comparing(Book::getDownloadAccount));
+
+         Optional<Book> min=books.stream()
+                 .min(Comparator.comparing(Book::getDownloadAccount));
+
+         System.out.println("Average Downloads:"+statistics.getAverage());
+         System.out.println("Book With Max Downloads:"+statistics.getMax());
+         System.out.println(max.get());
+         System.out.println("Book With Min Downloads:"+statistics.getMin());
+         System.out.println(min.get());
+         System.out.println("Total Downloads:"+statistics.getCount());
+
+
+
+     }
+
+
     public void saveData() throws  UnsupportedEncodingException {
 
         String json=api.getData(URL);
@@ -228,3 +293,4 @@ public class Main {
 
     }
 }
+
