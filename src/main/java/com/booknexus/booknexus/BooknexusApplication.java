@@ -15,6 +15,7 @@ public class BooknexusApplication implements CommandLineRunner {
 
 	@Autowired
 	private BookRepository repository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(BooknexusApplication.class, args);
 	}

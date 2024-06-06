@@ -1,10 +1,8 @@
 package com.booknexus.booknexus.main;
-
 import com.booknexus.booknexus.model.*;
 import com.booknexus.booknexus.repository.BookRepository;
 import com.booknexus.booknexus.service.API;
 import com.booknexus.booknexus.service.DataConvert;
-
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.*;
@@ -26,18 +24,20 @@ public class Main {
     public void menu() throws UnsupportedEncodingException {
 
         String menu= """
-                
-                [1]  Find Book By Title
-                [2]  Find All Books
-                [3]  FInd All Authors
-                [4]  Find Living Authors In A Given Year
-                [5]  Find Books By Language
-                [6]  Top 10 Books
-                [7]  Find Author By Name 
-                [8]  Statistics
-                
-                [0] Exit
-          
+                ╔═══════════════════════════════════════════╗
+                ║                   MENU                    ║                   
+                ╠═══════════════════════════════════════════╣
+                ║ [1]  Find Book By Title                   ║
+                ║ [2]  Find All Books                       ║
+                ║ [3]  FInd All Authors                     ║
+                ║ [4]  Find Living Authors In A Given Year  ║
+                ║ [5]  Find Books By Language               ║
+                ║ [6]  Top 10 Books                         ║
+                ║ [7]  Find Author By Name                  ║
+                ║ [8]  Statistics                           ║
+                ║                                           ║
+                ║ [0] Exit                                  ║
+                ╚═══════════════════════════════════════════╝
                 """;
 
         int opc=-1;
@@ -119,7 +119,7 @@ public class Main {
         Optional<Book> book=repository.findByTitleContainingIgnoreCase(name);
 
         if (book.isPresent()){
-            System.out.println(book);
+            System.out.println(book.get());
         }else {
             String nameEncode = URLEncoder.encode(name, "UTF-8");
             String json = api.getData(URL + "?search=" + nameEncode);
@@ -144,7 +144,7 @@ public class Main {
         List<Book> books =repository.findAll();
 
         if(!books.isEmpty()){
-            System.out.println(books);
+            books.forEach(System.out::println);
         }
 
     }
@@ -153,7 +153,7 @@ public class Main {
         List<Author> authors=repository.findAllAuthor();
 
         if(!authors.isEmpty()){
-            System.out.println(authors);
+            authors.forEach(System.out::println);
         }
 
     }
@@ -176,7 +176,10 @@ public class Main {
 
         List<Book> books=repository.findBookByLanguages(language.toUpperCase());
 
-        books.forEach(System.out::println);
+        if(!books.isEmpty()){
+            books.forEach(System.out::println);
+        }
+
 
     }
 
@@ -209,7 +212,7 @@ public class Main {
          Optional<Author> author=repository.findAuthorByName(name.toUpperCase());
 
          if (author.isPresent()){
-             System.out.println(author);
+             System.out.println(author.get());
          }else{
              System.out.println("Not found");
          }
@@ -235,7 +238,9 @@ public class Main {
          System.out.println(max.get());
          System.out.println("Book With Min Downloads:"+statistics.getMin());
          System.out.println(min.get());
-         System.out.println("Total Downloads:"+statistics.getCount());
+         System.out.println("Total Downloads:"+statistics.getSum());
+         System.out.println("Total Books:"+statistics.getCount());
+
 
 
 
