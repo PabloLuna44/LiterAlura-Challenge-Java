@@ -101,14 +101,35 @@ Este proyecto fue desarrollado como parte del desafío del curso Oracle One. EN 
 ![image](https://github.com/PabloLuna44/LiterAlura-Challenge-Java/assets/119721670/7839f714-0e14-4ac1-a676-9bbd9de661f8)
 
 ### ✅ `Funcionalidad 2:`
-  #### Ingresar el monto 
-
-![image](https://github.com/PabloLuna44/Java-Challenge-Conversor-de-Monedas/assets/119721670/182cd44f-e01f-45d8-a2f8-fbab29b9a403)
+  #### Buscar Libro por titulo
+![image](https://github.com/PabloLuna44/LiterAlura-Challenge-Java/assets/119721670/04788dcd-5f40-46f9-a117-e092a55d58a1)
 
 ### ✅ `Funcionalidad 3:` 
-  #### Realizar la consulta a la API para realizar la conversion y mostrar el resultado al usuario
+  #### Listar todos los libros buscados
+![image](https://github.com/PabloLuna44/LiterAlura-Challenge-Java/assets/119721670/b13cca4f-85ce-4998-bf0a-d06450656ebf)
 
-![image](https://github.com/PabloLuna44/Java-Challenge-Conversor-de-Monedas/assets/119721670/4dce61c6-af36-4f32-9b7c-c871e0b603a0)
+### ✅ `Funcionalidad 4:` 
+#### Listar todos los autores
+![image](https://github.com/PabloLuna44/LiterAlura-Challenge-Java/assets/119721670/06e8775a-2bc2-4228-b51a-298be8f963e4)
+
+### ✅ `Funcionalidad 5:` 
+#### Listar autores vivos en un determinado año
+![image](https://github.com/PabloLuna44/LiterAlura-Challenge-Java/assets/119721670/e534b1b3-0fa3-4003-b3e2-9938fe004786)
+
+### ✅ `Funcionalidad 6:` 
+#### Listar libros por idioma
+![image](https://github.com/PabloLuna44/LiterAlura-Challenge-Java/assets/119721670/5a7f84a7-e375-49b5-b5f1-e3fee979f3e6)
+
+### ✅ `Funcionalidad 7:` 
+#### Listar Top Ten de libros con mas descargas
+![image](https://github.com/PabloLuna44/LiterAlura-Challenge-Java/assets/119721670/1055a083-1a7f-4b37-8af4-7565e79831a4)
+
+### ✅ `Funcionalidad 8:` 
+#### Mostrar Estadisticas sobre los libros consultados
+![image](https://github.com/PabloLuna44/LiterAlura-Challenge-Java/assets/119721670/ebe182a7-5903-4756-bbf2-bd32c6113039)
+
+
+
 
 
 ---
