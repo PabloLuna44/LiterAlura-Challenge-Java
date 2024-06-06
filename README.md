@@ -96,8 +96,8 @@ Este proyecto fue desarrollado como parte del desafío del curso Oracle One. EN 
 ##  🖥️ Funcionalidades del proyecto
 
 ### ✅ `Funcionalidad 1:`
- #### Seleccionar cual moneda convertir 
-![image](https://github.com/PabloLuna44/Java-Challenge-Conversor-de-Monedas/assets/119721670/3acd3629-a811-4a26-bde6-9b810f3a2b68)
+ #### Menu principal 
+![image](https://github.com/PabloLuna44/LiterAlura-Challenge-Java/assets/119721670/7839f714-0e14-4ac1-a676-9bbd9de661f8)
 
 ### ✅ `Funcionalidad 2:`
   #### Ingresar el monto 
@@ -108,6 +108,7 @@ Este proyecto fue desarrollado como parte del desafío del curso Oracle One. EN 
   #### Realizar la consulta a la API para realizar la conversion y mostrar el resultado al usuario
 
 ![image](https://github.com/PabloLuna44/Java-Challenge-Conversor-de-Monedas/assets/119721670/4dce61c6-af36-4f32-9b7c-c871e0b603a0)
+
 
 ---
 
