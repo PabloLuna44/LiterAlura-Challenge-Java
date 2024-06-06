@@ -1,9 +1,8 @@
 ﻿# LiterAlura-Challenge-Java
 
-# Java-Challenge-Conversor-de-Monedas
 
 <div align="center">
-  <img src="https://github.com/PabloLuna44/Java-Challenge-Conversor-de-Monedas/assets/119721670/100ecb00-fac6-4426-bc5b-0e2e337dca17" width="400" height="400">
+  <img src="" width="400" height="400">
 </div>
 
 <div align="center">
@@ -15,7 +14,7 @@
 
 ## Descripción
 
-Este proyecto fue desarrollado como parte del desafío del curso Oracle One, el cual utiliza una API para realizar solicitudes de tasas de cambio y manipular el JSON para obtener la conversión de la moneda.
+Este proyecto fue desarrollado como parte del desafío del curso Oracle One. EN este challenge se implementa el consume de una api llamada gutendex en la cual se recibe la respuesta de la peticion a la API para consultar los libros realizar la conversion a objetos y realizar el mapeo de estos objetos a entidades en la base de datos para almacenar y consultar los libros guardados.
 <div align="center">
   <img src="https://github.com/PabloLuna44/Java-Challenge-Conversor-de-Monedas/assets/119721670/a7e2e95d-f132-4098-a3cf-79ec75902792">
 
@@ -42,49 +41,54 @@ Este proyecto fue desarrollado como parte del desafío del curso Oracle One, el 
 - Creación del Proyecto
 - Consumo de la API
 - Análisis de la Respuesta JSON
-- Filtro de Monedas
-- Exhibición de Resultados a los usuarios
+- Creación de Objetos 
+- Mapeo de objetos en la base de datos
+- Creación de repositorio
+- Buscar Libros Por titulo
+- Listar libros registrados
+- Listar autores registrados
+- Listar autores vivos en un determinado año
+- Listar libros por idioma
+- Listar autores por nombre
+- Top ten libros mas descargados
+- Estadisticas sobre los libros
 
-Para el filtrado de monedas, será necesario utilizar el atributo "Currency Code" del JSON. Para el desafío, podrás elegir al menos tres "Currency Code" para incluir en tu aplicación:
-
-- MXN: Peso mexicano
-- CAD: Dólar Canadiense
-- BRL: Real brasileño
-- CLP: Peso chileno
-- COP: Peso colombiano
-- USD: Dólar estadounidense
 
 ---
 
 ## 📌Recursos 
 
+### API 
+- [API web JSON para metadatos de libros electrónicos del Proyecto Gutenberg](https://gutendex.com/)
+
 ### 🎓 Cursos
-- [Curso de Alura: Creando tu primera aplicación Java](https://app.aluracursos.com/course/java-creando-primera-aplicacion)
-- [Curso Online Java: aplicando la Orientación a Objetos | Alura](https://app.aluracursos.com/course/java-aplicando-orientacion-objetos)
-- [Curso Online Java: trabajar con listas y colecciones de datos | Alura](https://app.aluracursos.com/course/java-trabajar-listas-colecciones-datos)
-- [Curso Online Java: consumir API, escribir archivos y manejar errores | Alura](https://app.aluracursos.com/course/java-consumir-api-escribir-archivos-manejar-errores)
+- [Curso Online Java: trabajando con lambdas, streams y Spring Framework | Alura](https://www.aluracursos.com/curso-online-java-trabajando-lambdas-streams-spring-framework)
+- [Curso Online Java: persistencia de datos y consultas con Spring Data JPA | Alura](https://app.aluracursos.com/course/java-persistencia-datos-consultas-spring-data-jpa?utm_source=gnarus&utm_medium=timeline)
 
 ### 🎓 Articulos
-- [Revisando la Orientación a Objetos: encapsulación de Java | Alura Cursos Online](https://www.aluracursos.com/blog/revisando-la-orientacion-a-objetos-encapsulacion-de-java)
-- [POO: ¿Qué es la programación orientada a objetos? | Alura Cursos Online](https://www.aluracursos.com/blog/poo-que-es-la-programacion-orientada-a-objetos)
-- [Aumentando tu productividad con el eclipse | Alura Cursos Online](https://www.aluracursos.com/blog/aumentando-tu-productividad-con-el-eclipse)
-- [Verificar si es letra o número en Java | Alura Cursos Online](https://www.aluracursos.com/blog/verificar-si-es-letra-o-numero-en-java)
-- [Importando clases en Java | Alura Cursos Online](https://www.aluracursos.com/blog/Importando-clases-en-java)
-- [Redondeo y números gigantes: de double a BigDecimal  | Alura Cursos Online](https://www.aluracursos.com/blog/redondeo-y-numeros-gigantes-de-double-a-bigdecimal)
+- [¿Qué es Maven? | Alura Cursos Online](https://www.aluracursos.com/blog/que-es-maven)
+- [Spring: Conozca este framework de Java | Alura Cursos Online](https://www.aluracursos.com/blog/spring-conozca-framework-java)
+- [Empezando con Spring Framework | Alura Cursos Online](https://www.aluracursos.com/blog/empezando-con-spring-framework)
+- [¿Que es Json? | Alura Cursos Online](https://www.aluracursos.com/blog/que-es-json)
+- [IntelliJ IDEA para principiantes | Alura Cursos Online](https://www.aluracursos.com/blog/intellij-idea-para-principiantes)
+- [Evite NullPointerException en Java | Alura Cursos Online](https://www.aluracursos.com/blog/evite-nullpointerexception-en-Java)
+- [Entendiendo el Lazy y el Eager Load de JPA | Alura Cursos Online](https://www.aluracursos.com/blog/entendiendo-el-lazy-y-el-eager-load-de-jpa)
+- [Bases de datos relacionales | Alura Cursos Online](https://www.aluracursos.com/blog/base-de-datos-relacional)
+
+
+
 
 
 ### 🎓 Alura +
-- [¿Por qué utilizar Java actualmente?](https://www.youtube.com/watch?v=3kNuK-XAHEY)
-- [Desmistificando el Back-End](https://www.youtube.com/watch?v=LLt7FreeHfQ&t=1s&ab_channel=AluraLatam)
-- [Git y GitHub para Principiantes #AluraMás](https://www.youtube.com/watch?v=-LmFK6skG7s)
-- [Simplificando tu código en Java: Conoce los enum #AluraMás](https://www.youtube.com/watch?v=EoPvlE85XAQ)
 - [¿Qué es la Programación Orientada a Objetos?](https://www.youtube.com/watch?v=Oigen2sjagk&t=1s&ab_channel=AluraLatam)
+- [Camino hacia el éxito como desarrollador Java #Aluratips](https://www.youtube.com/watch?v=zOetOoeOrOg&t=2s&ab_channel=AluraLatam)
+- [Spring Framework. ¿Qué es ? #AluraMás](https://www.youtube.com/watch?v=t-iqt1b2qqk&t=62s&ab_channel=AluraLatam)
 
 ---
 
 ## ⚙️ Tecnologias utilizadas 
 
-* [Java.swing](https://docs.oracle.com/javase/8/docs/api/javax/swing/package-summary.html) - Herramienta de interfaz gráfica de usuario
+* [Java.Spring](https://spring.io/projects/spring-boot) - Framework de desarrollo de aplicaciones en Java
 * [Java](https://www.java.com/es/) - Java es un lenguaje de programación orientado a objetos
 
 ---
@@ -109,9 +113,9 @@ Para el filtrado de monedas, será necesario utilizar el atributo "Currency Code
 
 ## Conclusión
 
-Con la realizacion de este proyecto fui capaz de realizar la solicitud con una API y mediante la respuesta de esta que es un archivo de tipo JSON 
-realize la conversion de diferentes divisas, así como tambien me permitio utilizar mis conocimientos de la programacion orientada a objetos(POO) para 
-la correcta implemetacion de este proyecto y utilizado buenas practicas de programacion
+Con la realizacion de este challenge fui capaz de implementar los requerimientos necesarios para este proyecto a si como implementar buenas practicas de progragramacion
+lo que me ayudo a fortalecer y aplicar mis conocmientos sobre logica de programación asi como lo conocimientos adquiridos a lo largo de esta formacion de backend implementando
+la conexion de la API asi como la utilización del framework Spring-boot
 
 ---
 ## Colaboradores 
@@ -122,7 +126,7 @@ la correcta implemetacion de este proyecto y utilizado buenas practicas de progr
 
 ## Insignias
 
-![Badge-Conversor](https://github.com/PabloLuna44/Java-Challenge-Conversor-de-Monedas/assets/119721670/9b0ea013-7efa-4645-9b12-9bf1d3097387)
+![]()
 
 
 
