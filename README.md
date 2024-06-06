@@ -1,7 +1,7 @@
 ﻿# LiterAlura-Challenge-Java
 
 
-<div align="center" style="border-radius=10px">
+<div align="center">
   <img src="https://github.com/PabloLuna44/LiterAlura-Challenge-Java/assets/119721670/cb78cde4-0648-4952-a540-087ab9b4bfd7" width="400" height="400">
 </div>
 
