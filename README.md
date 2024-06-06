@@ -16,6 +16,11 @@
 ## Descripción
 
 Este proyecto fue desarrollado como parte del desafío del curso Oracle One. EN este challenge se implementa el consume de una api llamada gutendex en la cual se recibe la respuesta de la peticion a la API para consultar los libros en la cual se recibe Json y se realiza la conversion a objetos y realizar el mapeo de estos objetos a entidades en la base de datos para almacenar y consultar los libros guardados.
+
+En este emocionante desafío de programación, te invitamos a construir tu propio catálogo de libros: el LiterAlura. Aprenderás a realizar solicitudes a una API de libros, a manipular datos JSON, guardarlos en una base de datos y, finalmente, a filtrar y mostrar los libros y autores de interés.
+
+OBJETIVO: Desarrollar un Catálogo de Libros que ofrezca interacción textual (vía consola) con los usuarios, proporcionando al menos 5 opciones de interacción. Los libros se buscarán a través de una API específica.
+
 <div align="center">
   <img src="https://github.com/PabloLuna44/Java-Challenge-Conversor-de-Monedas/assets/119721670/a7e2e95d-f132-4098-a3cf-79ec75902792">
 
@@ -45,6 +50,8 @@ Este proyecto fue desarrollado como parte del desafío del curso Oracle One. EN 
 - Creación de Objetos 
 - Mapeo de objetos en la base de datos
 - Creación de repositorio
+- Inserción y consulta en la base de datos
+- Exibición de resultados a los usuarios
 - Buscar Libros Por titulo
 - Listar libros registrados
 - Listar autores registrados
