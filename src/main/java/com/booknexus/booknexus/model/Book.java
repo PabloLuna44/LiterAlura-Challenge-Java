@@ -45,14 +45,20 @@ public class Book {
           return downloadAccount;
      }
 
+
+     public String toStringToAuthors() {
+          return "Book" +
+                  ", Title='" + title + '\'' +
+                  ", Download Account=" + downloadAccount +
+                  ", Languages=" + languages+'\n';
+     }
+
      @Override
      public String toString() {
-          return "Book{" +
-                  "id=" + id +
-                  ", title='" + title + '\'' +
-                  ", downloadAccount=" + downloadAccount +
-                  ", authors=" + authors +
-                  ", languages=" + languages +
-                  '}';
+          return "        ------------Book-------------\n" +
+                  "    Title='" + title + '\'' + ",\n" +
+                  "    Download Account=" + downloadAccount + ",\n" +
+                  "    Authors=" + authors + ",\n" +
+                  "    Languages=" + languages + "\n";
      }
 }

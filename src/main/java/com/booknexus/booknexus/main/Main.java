@@ -153,7 +153,8 @@ public class Main {
         List<Author> authors=repository.findAllAuthor();
 
         if(!authors.isEmpty()){
-            authors.forEach(System.out::println);
+            authors.stream()
+                    .forEach(a-> System.out.println(a.toStringWithBooks()));
         }
 
     }
@@ -191,7 +192,8 @@ public class Main {
          List<Author> authors = repository.findLivingAuthorsInAGivenYear(year);
 
          if (!authors.isEmpty()) {
-            authors.forEach(System.out::println);
+             authors.stream()
+                     .forEach(a-> System.out.println(a.toStringWithBooks()));
 
          }
      }
@@ -212,7 +214,7 @@ public class Main {
          Optional<Author> author=repository.findAuthorByName(name.toUpperCase());
 
          if (author.isPresent()){
-             System.out.println(author.get());
+             System.out.println(author.get().toStringWithBooks());
          }else{
              System.out.println("Not found");
          }

@@ -36,12 +36,19 @@ public class Author {
 
     @Override
     public String toString() {
-        return "Author{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", birthYear=" + birthYear +
-                ", deathYear=" + deathYear +
-                '}';
+        return "Author:" +
+                " Name='" + name + '\'' +
+                ", Birth Year=" + birthYear +
+                ", Death Year=" + deathYear ;
+    }
+
+
+    public String toStringWithBooks() {
+        return "-------------Author-------------" +'\n'+
+                "Name='" + name + '\'' + '\n'+
+                "Birth Year=" + birthYear +'\n'+
+                "Death Year=" + deathYear +'\n'+
+                "Books=" + book.toStringToAuthors();
     }
 
 
