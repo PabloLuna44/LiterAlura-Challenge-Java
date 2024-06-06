@@ -15,7 +15,7 @@
 
 ## Descripción
 
-Este proyecto fue desarrollado como parte del desafío del curso Oracle One. EN este challenge se implementa el consume de una api llamada gutendex en la cual se recibe la respuesta de la peticion a la API para consultar los libros realizar la conversion a objetos y realizar el mapeo de estos objetos a entidades en la base de datos para almacenar y consultar los libros guardados.
+Este proyecto fue desarrollado como parte del desafío del curso Oracle One. EN este challenge se implementa el consume de una api llamada gutendex en la cual se recibe la respuesta de la peticion a la API para consultar los libros en la cual se recibe Json y se realiza la conversion a objetos y realizar el mapeo de estos objetos a entidades en la base de datos para almacenar y consultar los libros guardados.
 <div align="center">
   <img src="https://github.com/PabloLuna44/Java-Challenge-Conversor-de-Monedas/assets/119721670/a7e2e95d-f132-4098-a3cf-79ec75902792">
 
